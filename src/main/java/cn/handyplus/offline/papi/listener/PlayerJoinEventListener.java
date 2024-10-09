@@ -3,7 +3,6 @@ package cn.handyplus.offline.papi.listener;
 import cn.handyplus.lib.annotation.HandyListener;
 import cn.handyplus.lib.constants.BaseConstants;
 import cn.handyplus.lib.util.HandyHttpUtil;
-import cn.handyplus.offline.papi.constants.OfflineConstants;
 import cn.handyplus.offline.papi.util.ConfigUtil;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -28,7 +27,7 @@ public class PlayerJoinEventListener implements Listener {
         if (!ConfigUtil.CONFIG.getBoolean(BaseConstants.IS_CHECK_UPDATE_TO_OP_MSG)) {
             return;
         }
-        HandyHttpUtil.checkVersion(event.getPlayer(), OfflineConstants.PLUGIN_VERSION_URL);
+        HandyHttpUtil.checkVersion(event.getPlayer());
     }
 
 }

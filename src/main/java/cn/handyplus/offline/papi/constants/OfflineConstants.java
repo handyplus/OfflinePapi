@@ -7,9 +7,6 @@ package cn.handyplus.offline.papi.constants;
  */
 public abstract class OfflineConstants {
 
-    /**
-     * 更新记录url
-     */
-    public final static String PLUGIN_VERSION_URL = "https://api.github.com/repos/handy-git/OfflinePapi/releases/latest";
+    public static boolean MSG_TIP;
 
 }

@@ -4,6 +4,7 @@ import cn.handyplus.lib.core.CollUtil;
 import cn.handyplus.lib.core.StrUtil;
 import cn.handyplus.lib.expand.adapter.HandySchedulerUtil;
 import cn.handyplus.lib.util.MessageUtil;
+import cn.handyplus.offline.papi.constants.OfflineConstants;
 import cn.handyplus.offline.papi.enter.OfflinePapiEnter;
 import cn.handyplus.offline.papi.hook.PlaceholderApiUtil;
 import cn.handyplus.offline.papi.service.OfflinePapiService;
@@ -44,11 +45,8 @@ public class PapiDataJob {
             return;
         }
         try {
-            boolean msg = ConfigUtil.CONFIG.getBoolean("msg");
             long start = System.currentTimeMillis();
-            if (msg) {
-                MessageUtil.sendConsoleMessage("同步papi变量数据开始");
-            }
+            MessageUtil.sendConsoleMessage(OfflineConstants.MSG_TIP, "同步papi变量数据开始");
             List<String> papiList = ConfigUtil.CONFIG.getStringList("papi");
             if (CollUtil.isEmpty(papiList)) {
                 return;
@@ -59,9 +57,7 @@ public class PapiDataJob {
             } else {
                 getOfflinePlayersPapiDataJob(papiList);
             }
-            if (msg) {
-                MessageUtil.sendConsoleMessage("同步papi变量数据结束,耗时:" + (System.currentTimeMillis() - start) / 1000);
-            }
+            MessageUtil.sendConsoleMessage(OfflineConstants.MSG_TIP, "同步papi变量数据结束,耗时:" + (System.currentTimeMillis() - start) / 1000);
         } finally {
             GET_PAPI_DATA_JOB_TASK_LOCK.release();
         }
@@ -74,7 +70,7 @@ public class PapiDataJob {
      */
     private static void getOnlinePlayersPapiDataJob(List<String> papiList) {
         Collection<? extends Player> onlinePlayers = Bukkit.getOnlinePlayers();
-        MessageUtil.sendConsoleMessage("本次同步在线玩家数量:" + onlinePlayers.size());
+        MessageUtil.sendConsoleMessage(OfflineConstants.MSG_TIP, "本次同步在线玩家数量:" + onlinePlayers.size());
         if (onlinePlayers.isEmpty()) {
             return;
         }
@@ -90,7 +86,7 @@ public class PapiDataJob {
      */
     private static void getOfflinePlayersPapiDataJob(List<String> papiList) {
         OfflinePlayer[] offlinePlayers = Bukkit.getOfflinePlayers();
-        MessageUtil.sendConsoleMessage("本次同步离线玩家数量:" + offlinePlayers.length);
+        MessageUtil.sendConsoleMessage(OfflineConstants.MSG_TIP, "本次同步离线玩家数量:" + offlinePlayers.length);
         if (offlinePlayers.length < 1) {
             return;
         }

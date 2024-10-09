@@ -1,6 +1,7 @@
 package cn.handyplus.offline.papi.util;
 
 import cn.handyplus.lib.util.HandyConfigUtil;
+import cn.handyplus.offline.papi.constants.OfflineConstants;
 import org.bukkit.configuration.file.FileConfiguration;
 
 /**
@@ -17,6 +18,8 @@ public class ConfigUtil {
     public static void init() {
         // 加载config
         CONFIG = HandyConfigUtil.loadConfig();
+        // 加载是否提醒消息
+        OfflineConstants.MSG_TIP = ConfigUtil.CONFIG.getBoolean("msg");
     }
 
 }
