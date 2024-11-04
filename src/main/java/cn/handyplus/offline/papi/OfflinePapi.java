@@ -44,8 +44,4 @@ public class OfflinePapi extends JavaPlugin {
         InitApi.disable();
     }
 
-    public static OfflinePapi getInstance() {
-        return INSTANCE;
-    }
-
 }
