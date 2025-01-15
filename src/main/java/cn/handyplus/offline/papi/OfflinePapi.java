@@ -14,12 +14,10 @@ import org.bukkit.plugin.java.JavaPlugin;
  * @author handy
  */
 public class OfflinePapi extends JavaPlugin {
-    private static OfflinePapi INSTANCE;
     public static boolean USE_PAPI = true;
 
     @Override
     public void onEnable() {
-        INSTANCE = this;
         InitApi initApi = InitApi.getInstance(this);
         // 加载配置文件
         ConfigUtil.init();
