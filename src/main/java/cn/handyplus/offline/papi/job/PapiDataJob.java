@@ -110,7 +110,7 @@ public class PapiDataJob {
         for (String papi : papiList) {
             OfflinePapiEnter offlinePapiEnter = new OfflinePapiEnter();
             offlinePapiEnter.setPlayerName(playerName);
-            offlinePapiEnter.setPlayerUuid(playerUuid.toString());
+            offlinePapiEnter.setPlayerUuid(playerUuid);
             offlinePapiEnter.setPapi(papi);
             // 判断值是否存在
             String papiValue = PlaceholderApiUtil.set(playerUuid, papi);
@@ -132,7 +132,7 @@ public class PapiDataJob {
         for (String papi : papiList) {
             OfflinePapiEnter offlinePapiEnter = new OfflinePapiEnter();
             offlinePapiEnter.setPlayerName(player.getName());
-            offlinePapiEnter.setPlayerUuid(player.getUniqueId().toString());
+            offlinePapiEnter.setPlayerUuid(player.getUniqueId());
             offlinePapiEnter.setPapi(papi);
             // 判断值是否存在
             String papiValue = PlaceholderApiUtil.set(player, papi);

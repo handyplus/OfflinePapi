@@ -4,6 +4,7 @@ import cn.handyplus.lib.db.Db;
 import cn.handyplus.offline.papi.enter.OfflinePapiEnter;
 
 import java.util.Optional;
+import java.util.UUID;
 
 /**
  * 玩家papi数据
@@ -52,7 +53,7 @@ public class OfflinePapiService {
      * @param papi       变量
      * @return 数据
      */
-    public Optional<OfflinePapiEnter> findByPlayerUuidAndPapi(String playerUuid, String papi) {
+    public Optional<OfflinePapiEnter> findByPlayerUuidAndPapi(UUID playerUuid, String papi) {
         Db<OfflinePapiEnter> use = Db.use(OfflinePapiEnter.class);
         use.where().eq(OfflinePapiEnter::getPlayerUuid, playerUuid)
                 .eq(OfflinePapiEnter::getPapi, papi);

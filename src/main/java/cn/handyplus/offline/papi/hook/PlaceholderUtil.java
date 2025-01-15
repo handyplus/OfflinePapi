@@ -10,6 +10,7 @@ import cn.handyplus.offline.papi.util.ConfigUtil;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +34,7 @@ public class PlaceholderUtil extends PlaceholderExpansion {
      * @return 结果
      */
     @Override
-    public String getIdentifier() {
+    public @NotNull String getIdentifier() {
         return "offlinePapi";
     }
 
@@ -45,10 +46,8 @@ public class PlaceholderUtil extends PlaceholderExpansion {
      * @return 变量
      */
     @Override
-    public String onRequest(OfflinePlayer player, String placeholder) {
-        if (player == null) {
-            return null;
-        }
+    public String onRequest(OfflinePlayer player, @NotNull String placeholder) {
+
         List<String> papiList = ConfigUtil.CONFIG.getStringList("papi");
         if (CollUtil.isEmpty(papiList)) {
             return null;
@@ -58,7 +57,7 @@ public class PlaceholderUtil extends PlaceholderExpansion {
             return null;
         }
         // 如果是me查询自己
-        if ("me".equalsIgnoreCase(offlineParam.getPlayerName())) {
+        if ("me".equalsIgnoreCase(offlineParam.getPlayerName()) && player != null) {
             offlineParam.setPlayerName(player.getName());
         }
         // 如果玩家在线.直接获取实时变量
@@ -132,7 +131,7 @@ public class PlaceholderUtil extends PlaceholderExpansion {
      * @return 结果
      */
     @Override
-    public String getAuthor() {
+    public @NotNull String getAuthor() {
         return plugin.getDescription().getAuthors().toString();
     }
 
@@ -142,7 +141,7 @@ public class PlaceholderUtil extends PlaceholderExpansion {
      * @return 结果
      */
     @Override
-    public String getVersion() {
+    public @NotNull String getVersion() {
         return plugin.getDescription().getVersion();
     }
 }

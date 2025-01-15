@@ -2,9 +2,11 @@ package cn.handyplus.offline.papi.enter;
 
 import cn.handyplus.lib.annotation.TableField;
 import cn.handyplus.lib.annotation.TableName;
-import cn.handyplus.lib.db.enums.IndexEnum;
+import cn.handyplus.lib.db.IndexEnum;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.UUID;
 
 /**
  * @author handy
@@ -21,7 +23,7 @@ public class OfflinePapiEnter {
     private String playerName;
 
     @TableField(value = "player_uuid", comment = "玩家uuid")
-    private String playerUuid;
+    private UUID playerUuid;
 
     @TableField(value = "papi", comment = "变量", indexEnum = IndexEnum.INDEX)
     private String papi;
