@@ -13,6 +13,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
@@ -129,6 +130,7 @@ public class PapiDataJob {
      * @since 1.0.7
      */
     public static void buildPlayerPapiEnter(List<String> papiList, Player player) {
+        List<OfflinePapiEnter> offlinePapiEnterList = new ArrayList<>();
         for (String papi : papiList) {
             OfflinePapiEnter offlinePapiEnter = new OfflinePapiEnter();
             offlinePapiEnter.setPlayerName(player.getName());
@@ -140,7 +142,15 @@ public class PapiDataJob {
                 continue;
             }
             offlinePapiEnter.setVault(papiValue);
-            OfflinePapiService.getInstance().saveOrUpdate(offlinePapiEnter);
+            offlinePapiEnterList.add(offlinePapiEnter);
+        }
+        if (CollUtil.isNotEmpty(offlinePapiEnterList)) {
+            // 异步操作数据库
+            HandySchedulerUtil.runTaskAsynchronously(() -> {
+                for (OfflinePapiEnter offlinePapiEnter : offlinePapiEnterList) {
+                    OfflinePapiService.getInstance().saveOrUpdate(offlinePapiEnter);
+                }
+            });
         }
     }
 
