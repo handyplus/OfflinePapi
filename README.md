@@ -1,5 +1,11 @@
 # OfflinePapi
 
+-------------------------------------------------------------------------------
+
+[**🌎中文文档**](README-CH.md)
+
+-------------------------------------------------------------------------------
+
 A somewhat useful offline variable plugin
 
 If this plugin helps you, please support the author by clicking the Star in the upper right corner～
