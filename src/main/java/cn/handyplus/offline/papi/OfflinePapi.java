@@ -21,7 +21,7 @@ public class OfflinePapi extends JavaPlugin {
         InitApi initApi = InitApi.getInstance(this);
         // 加载配置文件
         ConfigUtil.init();
-        // 加载Placeholder
+        // 加载 Placeholder
         new PlaceholderUtil(this).register();
         initApi.initCommand("cn.handyplus.offline.papi.command")
                 .initListener("cn.handyplus.offline.papi.listener")

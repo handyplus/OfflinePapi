@@ -2,7 +2,7 @@ package cn.handyplus.offline.papi.job;
 
 import cn.handyplus.lib.core.CollUtil;
 import cn.handyplus.lib.core.StrUtil;
-import cn.handyplus.lib.expand.adapter.HandySchedulerUtil;
+import cn.handyplus.lib.internal.HandySchedulerUtil;
 import cn.handyplus.lib.util.MessageUtil;
 import cn.handyplus.offline.papi.constants.OfflineConstants;
 import cn.handyplus.offline.papi.enter.OfflinePapiEnter;
