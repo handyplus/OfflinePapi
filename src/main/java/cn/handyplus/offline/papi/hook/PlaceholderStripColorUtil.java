@@ -26,7 +26,7 @@ public class PlaceholderStripColorUtil extends PlaceholderExpansion {
      */
     @Override
     public @NotNull String getIdentifier() {
-        return "offlinePapi_stripColor";
+        return "offlinePapiStripColor";
     }
 
     /**
