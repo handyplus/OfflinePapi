@@ -1,5 +1,6 @@
 package cn.handyplus.offline.papi.hook;
 
+import cn.handyplus.lib.util.BaseUtil;
 import cn.handyplus.offline.papi.OfflinePapi;
 import cn.handyplus.offline.papi.core.PapiUtil;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
@@ -11,10 +12,10 @@ import org.jetbrains.annotations.NotNull;
  *
  * @author handy
  */
-public class PlaceholderUtil extends PlaceholderExpansion {
+public class PlaceholderStripColorUtil extends PlaceholderExpansion {
     private final OfflinePapi plugin;
 
-    public PlaceholderUtil(OfflinePapi plugin) {
+    public PlaceholderStripColorUtil(OfflinePapi plugin) {
         this.plugin = plugin;
     }
 
@@ -25,7 +26,7 @@ public class PlaceholderUtil extends PlaceholderExpansion {
      */
     @Override
     public @NotNull String getIdentifier() {
-        return "offlinePapi";
+        return "offlinePapi_stripColor";
     }
 
     /**
@@ -37,7 +38,7 @@ public class PlaceholderUtil extends PlaceholderExpansion {
      */
     @Override
     public String onRequest(OfflinePlayer player, @NotNull String placeholder) {
-        return PapiUtil.getPapi(player, placeholder);
+        return BaseUtil.stripColor(PapiUtil.getPapi(player, placeholder));
     }
 
     /**
