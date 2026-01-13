@@ -2,6 +2,7 @@ package cn.handyplus.offline.papi;
 
 import cn.handyplus.lib.InitApi;
 import cn.handyplus.lib.util.MessageUtil;
+import cn.handyplus.offline.papi.hook.PlaceholderStripColorUtil;
 import cn.handyplus.offline.papi.hook.PlaceholderUtil;
 import cn.handyplus.offline.papi.job.PapiDataJob;
 import cn.handyplus.offline.papi.util.ConfigUtil;
@@ -23,6 +24,7 @@ public class OfflinePapi extends JavaPlugin {
         ConfigUtil.init();
         // 加载 Placeholder
         new PlaceholderUtil(this).register();
+        new PlaceholderStripColorUtil(this).register();
         initApi.initCommand("cn.handyplus.offline.papi.command")
                 .initListener("cn.handyplus.offline.papi.listener")
                 .enableSql("cn.handyplus.offline.papi.enter")
